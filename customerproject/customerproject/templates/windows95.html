@@ -4,9 +4,15 @@
 <div class="container mt-5">
     <div class="jumbotron">
         <h1>Windows 95</h1>
+
+        {% for text_box in text_boxes %}
+            <div class="editable-text-box">
+                {{ text_box.content|safe }}
+            </div>
+        {% endfor %}
+
         <a class="btn btn-primary btn-lg" href="{% url 'windows95' %}" role="button">Windows 98</a>
         <a class="btn btn-primary btn-lg" href="{% url 'homepage' %}" role="button">Home</a>
-
     </div>
 </div>
 {% endblock %}
