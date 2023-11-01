@@ -3,15 +3,16 @@
 {% block content %}
 <div class="container mt-5">
     <div class="jumbotron">
-        <h1>Windows 95</h1>
+        <h1>Windows 98</h1>
 
         {% for text_box in text_boxes %}
             <div class="editable-text-box">
                 {{ text_box.content|safe }}
             </div>
         {% endfor %}
-        
-        <a class="btn btn-primary btn-lg" href="{% url 'windows98' %}" role="button">Windows 98</a>
+
+        <a class="btn btn-primary btn-lg" href="{% url 'windowsxp' %}" role="button">Windows XP</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'windows95' %}" role="button">Windows 95</a>
         <a class="btn btn-primary btn-lg" href="{% url 'homepage' %}" role="button">Home</a>
     </div>
 </div>
