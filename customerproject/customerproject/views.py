@@ -26,7 +26,7 @@ def windows95(request):
     })
 
 def windows98(request):
-    text_boxes = TextBox.objects.filter(page_identifier='windows95')
+    text_boxes = TextBox.objects.filter(page_identifier='windows98')
     if request.method == 'POST':
         form = TextBoxForm(request.POST)
         if form.is_valid():
@@ -42,7 +42,7 @@ def windows98(request):
     })
 
 def windowsxp(request):
-    text_boxes = TextBox.objects.filter(page_identifier='windows95')
+    text_boxes = TextBox.objects.filter(page_identifier='windowsxp')
     if request.method == 'POST':
         form = TextBoxForm(request.POST)
         if form.is_valid():
@@ -85,18 +85,6 @@ def manage_textboxes(request):
         'text_boxes': text_boxes,
         'form': form
     })
-
-def edit_textbox(request, pk):
-    text_box = get_object_or_404(TextBox, pk=pk)
-    if request.method == 'POST':
-        form = TextBoxForm(request.POST, instance=text_box)
-        if form.is_valid():
-            form.save()
-            return redirect('manage_textboxes')
-    else:
-        form = TextBoxForm(instance=text_box)
-
-    return render(request, 'edit_textbox.html', {'form': form, 'text_box': text_box})
 
 def edit_textbox(request, pk):
     text_box = get_object_or_404(TextBox, pk=pk)
