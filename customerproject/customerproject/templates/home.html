@@ -1,15 +1,17 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 <div class="container mt-5">
     <div class="jumbotron">
+        <p><img src="{% static 'win7.png' %}" alt="Windows Museum Logo" class="img-fluid"></p> 
         <h1>Microsoft Windows Operating System Museum</h1>
         <h5>This website will describe all the released versions of Microsoft's 
         Windows Operating systems from Windows 95 to Windows 11, we will go over the major
         additions between each version, the design difference between each version, and some 
         statistics about each version.
         </h5>
-        <a class="btn btn-primary btn-lg" href="{% url 'windows95' %}" role="button">Begin</a>
+        <a class="btn btn-primary" href="{% url 'windows95' %}" role="button">Begin</a>
+        <a class="btn btn-primary" href="{% url 'manage_textboxes' %}" role="button">Manage</a>
     </div>
 </div>
 {% endblock %}

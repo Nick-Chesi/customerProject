@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Manage Text Boxes</h2>
+    <!-- Form to add a new TextBox -->
+    <form method="post" class="mb-3">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Add TextBox</button>
+        <a class="btn btn-primary" href="{% url 'homepage' %}" role="button">Home</a>
+    </form>
+
+    <!-- List existing TextBoxes with options to edit and show order -->
+    <div class="list-group">
+        {% for text_box in text_boxes %}
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Order: {{ text_box.order }}</h5>
+                    <p class="mb-1">{{ text_box.content }}</p>
+                    <div class="btn-group">
+                        <!-- Edit button -->
+                        <a href="{% url 'edit_textbox' text_box.pk %}" class="btn btn-info btn-sm">Edit</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
