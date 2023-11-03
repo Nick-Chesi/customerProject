@@ -16,7 +16,7 @@
             <div class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">Order: {{ text_box.order }}</h5>
-                    <p class="mb-1">{{ text_box.content }}</p>
+                    <h5 class="mb-1"> Page: {{ text_box.page_identifier }}</h5>
                     <div class="btn-group">
                         <!-- Edit button -->
                         <a href="{% url 'edit_textbox' text_box.pk %}" class="btn btn-info btn-sm">Edit</a>
