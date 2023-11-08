@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <div class="jumbotron">
         <p><img src="{% static 'win7.png' %}" alt="Windows Museum Logo" class="img-fluid"></p>
-        <h1>Log into The Microsoft Windows Operating System Museum</h1>
+        <h1>Log into The Microsoft Windows OS Museum</h1>
 
         {% if user.is_authenticated %}
             <form method="post" action="{% url 'logout' %}">

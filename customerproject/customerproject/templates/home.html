@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container mt-5">
     <div class="jumbotron">
-        <p><img src="{% static 'win7.png' %}" alt="Windows Museum Logo" class="img-fluid"></p> 
+        <p><img src="{% static 'win7.png' %}" alt="Windows Museum Logo" class="img-fluid"></p>
         <h1>Microsoft Windows Operating System Museum</h1>
         <h5>This website will describe all the released versions of Microsoft's 
         Windows Operating systems from Windows 95 to Windows 11, we will go over the major
@@ -11,8 +11,16 @@
         statistics about each version.
         </h5>
         <a class="btn btn-primary" href="{% url 'windows95' %}" role="button">Begin</a>
-        <a class="btn btn-primary" href="{% url 'login' %}" role="button">Login</a>
-        <a class="btn btn-primary" href="{% url 'manage_textboxes' %}" role="button">Manage</a>
+        
+        {% if user.is_authenticated %}
+            <a class="btn btn-secondary" href="{% url 'logout' %}" role="button">Logout</a>
+            {% if user.is_superuser %}
+                <a class="btn btn-primary" href="{% url 'manage_textboxes' %}" role="button">Manage</a>
+            {% endif %}
+        {% else %}
+            <a class="btn btn-primary" href="{% url 'login' %}" role="button">Login</a>
+        {% endif %}
+        
     </div>
 </div>
 {% endblock %}
