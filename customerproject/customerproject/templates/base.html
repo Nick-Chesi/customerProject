@@ -9,6 +9,16 @@
 </head>
 <body>
     <div class="container">
+        <!-- Display user name if logged in, else 'Not Signed in' -->
+        <div class="row">
+            <div class="col">
+                {% if user.is_authenticated %}
+                    <span>Logged in as: {{ user.username }}</span>
+                {% else %}
+                    <span>Not Signed In</span>
+                {% endif %}
+            </div>
+        </div>
         {% block content %}
         <!-- The content block will be overridden by child templates -->
         {% endblock %}

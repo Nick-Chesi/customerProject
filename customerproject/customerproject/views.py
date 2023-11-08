@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate, login, logout
 from .models import TextBox
 from .forms import TextBoxForm
 
@@ -56,7 +57,30 @@ def windowsxp(request):
         'text_boxes': text_boxes,
         'form': form
     })
+####################################################################
+# Auth
+####################################################################
 
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('homepage')  # Redirect to a success page.
+        else:
+            # Return an 'invalid login' error message.
+            context = {'error': 'Invalid username or password.'}
+            return render(request, 'login.html', context)
+    else:
+        # No context is needed for a GET request to the login page.
+        return render(request, 'login.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')  # Redirect to a login page.
+####################################################################
 def textboxForm(request):
     if request.method == 'POST':
         form = TextBoxForm(request.POST)
