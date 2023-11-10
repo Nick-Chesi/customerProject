@@ -1,18 +1,103 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container mt-5 windows-95-theme">
     <div class="jumbotron">
         <h1>Windows 95</h1>
 
-        {% for text_box in text_boxes %}
-            <div class="editable-text-box">
-                {{ text_box.content|safe }}
-            </div>
-        {% endfor %}
+        <div class="text-boxes-grid">
+            {% for text_box in text_boxes %}
+                <div class="editable-text-box">
+
+                    <div class="window-controls">
+                        <div class="control minimize"> _ </div>
+                        <div class="control maximize"> □ </div>
+                        <div class="control close"> X </div>
+                    </div>
+
+                    <div class="text-box-title">Infobox {{ forloop.counter0 }} - Notepad</div>
+                    <div class="menu-bar">
+                        <span><u>F</u>ile</span>
+                        <span><u>E</u>dit</span>
+                        <span><u>S</u>earch</span>
+                        <span><u>H</u>elp</span>
+                    </div>
+                    {{ text_box.content|safe }}
+                </div>
+            {% endfor %}
+        </div>
         
         <a class="btn btn-primary btn-lg" href="{% url 'windows98' %}" role="button">Windows 98</a>
         <a class="btn btn-primary btn-lg" href="{% url 'homepage' %}" role="button">Home</a>
     </div>
 </div>
+
+<style>
+    .windows-95-theme .text-boxes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+    }
+
+    .windows-95-theme .editable-text-box {
+        background-color: #ffffff; /* Light gray background */
+        color: black; /* Black text color */
+        font-family: "Courier New", monospace; /* Monospaced font similar to Windows 95 */
+        border: 10px solid #c0c0c0; /* Solid black border */
+        padding: 8px;
+        overflow: auto;
+        border-radius: 0; /* Square boxes */
+        position: relative; /* For positioning the window "controls" */
+    }
+
+    .windows-95-theme .text-box-title {
+        background-color: #0000ff; /* Blue background */
+        color: white; /* White text color */
+        padding: 5px 10px; /* Padding inside the title bar */
+        font-family: "Courier New", monospace;
+    }
+
+    .windows-95-theme .menu-bar {
+        background-color: #c0c0c0; /* Light gray background */
+        color: black;
+        font-family: "Courier New", monospace;
+        padding: 2px 2px; /* Top and bottom padding */
+        display: flex;
+    }
+
+    .windows-95-theme .menu-bar span {
+        margin-right: 10px; /* Spacing between menu items */
+        font-size: 14px; /* Adjust font size as needed */
+    }
+
+    .windows-95-theme .window-controls {
+        position: absolute;
+        top: 15px;
+        right: 5px;
+        bottom: 10px;
+        display: flex;
+    }
+
+    .windows-95-theme .control {
+        width: 25px;
+        height: 25px;
+        border: 1px solid #000;
+        margin-left: 3px;
+        margin-right: 4px;
+        background-color: #c0c0c0;
+    }
+
+    .windows-95-theme .minimize,
+    .windows-95-theme .maximize,
+    .windows-95-theme .close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #c0c0c0; 
+        padding: 5px; 
+        margin-left: 2px; 
+    }
+</style>
+
 {% endblock %}
