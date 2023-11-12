@@ -6,27 +6,27 @@
     <title>Microsoft Windows OS Museum</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Basic textbox holder background-->
-      <style>
+    <!-- Custom Styles -->
+    <style>
+        body {
+            border: none !important;
+            background-color: #fff;
+        }
         .editable-text-box {
             background-color: #333; /* Darker background color */
             color: #fff;            /* Light text color for readability */
             padding: 10px;          /* Padding for some space inside the box */
             margin-bottom: 10px;    /* Margin for spacing between boxes */
-            border-radius: 5px;     /* Rounded corners */
+            /* Removed border-radius to adhere to Windows 95 style */
         }
     </style>
-
 </head>
 <body>
     <div class="container">
-        <!-- Display user name if logged in, else 'Not Signed in' -->
         <div class="row">
             <div class="col">
                 {% if user.is_authenticated %}
-                    <span>Logged in as: {{ user.username }}</span>
-                {% else %}
-                    <span>Not Signed In</span>
+                    <span> Logged in: {{ user.username }} </span>
                 {% endif %}
             </div>
         </div>
@@ -34,7 +34,6 @@
         <!-- The content block will be overridden by child templates -->
         {% endblock %}
     </div>
-    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.5.2/dist/umd/popper.min.js"></script>

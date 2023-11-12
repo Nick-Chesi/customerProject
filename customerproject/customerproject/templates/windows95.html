@@ -1,21 +1,21 @@
 {% extends "base.html" %}
-
 {% block content %}
+<body style="background-color: #008080;"> 
 <div class="container mt-5 windows-95-theme">
     <div class="jumbotron">
         <h1>Windows 95</h1>
-
         <div class="text-boxes-grid">
             {% for text_box in text_boxes %}
                 <div class="editable-text-box">
-
-                    <div class="window-controls">
-                        <div class="control minimize"> _ </div>
-                        <div class="control maximize"> □ </div>
-                        <div class="control close"> X </div>
-                    </div>
-
-                    <div class="text-box-title">Infobox {{ forloop.counter0 }} - Notepad</div>
+                    <!-- Controls -->
+                    <!-- Title -->
+                    <div class="text-box-title">Info box {{ forloop.counter0 }} - Notepad</div>
+                        <div class="window-controls">
+                            <div class="control minimize"> _ </div>
+                            <div class="control maximize"> □ </div>
+                            <div class="control close"> X </div>
+                        </div>
+                    <!-- Menu Bar -->
                     <div class="menu-bar">
                         <span><u>F</u>ile</span>
                         <span><u>E</u>dit</span>
@@ -26,13 +26,14 @@
                 </div>
             {% endfor %}
         </div>
-        
+        <!-- Buttons -->
         <a class="btn btn-primary btn-lg" href="{% url 'windows98' %}" role="button">Windows 98</a>
         <a class="btn btn-primary btn-lg" href="{% url 'homepage' %}" role="button">Home</a>
     </div>
 </div>
-
+<!-- Cool notepad theme -->
 <style>
+
     .windows-95-theme .text-boxes-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -44,18 +45,24 @@
         background-color: #ffffff; /* Light gray background */
         color: black; /* Black text color */
         font-family: "Courier New", monospace; /* Monospaced font similar to Windows 95 */
-        border: 10px solid #c0c0c0; /* Solid black border */
-        padding: 8px;
         overflow: auto;
         border-radius: 0; /* Square boxes */
         position: relative; /* For positioning the window "controls" */
+        padding: 0px; /* No padding to allow the border to touch the content */
+        border: 5px solid #c0c0c0;
+        box-shadow: 
+            1px 1px 0px 0px #000, /* Dark outer shadow for depth */
+            inset 1px 1px 0px 0px #fff, /* Bright inner shadow for highlight */
+            inset -1px -1px 0px 0px #808080, /* Dark inner shadow for depth */
+            inset 1px 1px 2px 0px rgba(0, 0, 0, 0.2); /* Subtle inner shadow for soft depth */
     }
 
     .windows-95-theme .text-box-title {
-        background-color: #0000ff; /* Blue background */
+        background-color: #000080;
         color: white; /* White text color */
-        padding: 5px 10px; /* Padding inside the title bar */
+        padding: 3px 5px; /* Padding inside the title bar */
         font-family: "Courier New", monospace;
+        border-bottom: 2px solid #c0c0c0; 
     }
 
     .windows-95-theme .menu-bar {
@@ -64,6 +71,11 @@
         font-family: "Courier New", monospace;
         padding: 2px 2px; /* Top and bottom padding */
         display: flex;
+        box-shadow: 
+            1px 1px 0px 0px #000, /* Dark outer shadow for depth */
+            inset 1px 1px 0px 0px #fff, /* Bright inner shadow for highlight */
+            inset -1px -1px 0px 0px #808080, /* Dark inner shadow for depth */
+            inset 1px 1px 2px 0px rgba(0, 0, 0, 0.2); /* Subtle inner shadow for soft depth */
     }
 
     .windows-95-theme .menu-bar span {
@@ -73,9 +85,9 @@
 
     .windows-95-theme .window-controls {
         position: absolute;
-        top: 15px;
+        top: 2.3%;
         right: 5px;
-        bottom: 10px;
+        transform: translateY(-50%); /* Centers the controls vertically */
         display: flex;
     }
 
@@ -95,9 +107,9 @@
         justify-content: center;
         align-items: center;
         background-color: #c0c0c0; 
-        padding: 5px; 
-        margin-left: 2px; 
+        padding: 2px; 
+        margin-left: 1px; 
     }
 </style>
-
+</body>
 {% endblock %}
