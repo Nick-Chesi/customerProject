@@ -2,7 +2,6 @@
 {% block content %}
 <body style="background-color: #008080;"> 
 <div class="container mt-5 windows-95-theme">
-    <div class="jumbotron">
         <h1>Windows 95</h1>
         <div class="text-boxes-grid">
             {% for text_box in text_boxes %}
@@ -27,8 +26,8 @@
             {% endfor %}
         </div>
         <!-- Buttons -->
-        <a class="btn btn-primary btn-lg" href="{% url 'windows98' %}" role="button">Windows 98</a>
         <a class="btn btn-primary btn-lg" href="{% url 'homepage' %}" role="button">Home</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'windows98' %}" role="button">Windows 98</a>
     </div>
 </div>
 <!-- Cool notepad theme -->
@@ -49,12 +48,12 @@
         border-radius: 0; /* Square boxes */
         position: relative; /* For positioning the window "controls" */
         padding: 0px; /* No padding to allow the border to touch the content */
-        border: 5px solid #c0c0c0;
+        border: 8px solid #c0c0c0;
         box-shadow: 
-            1px 1px 0px 0px #000, /* Dark outer shadow for depth */
+            3px 3px 0px 0px #000, /* Dark outer shadow for depth */
             inset 1px 1px 0px 0px #fff, /* Bright inner shadow for highlight */
             inset -1px -1px 0px 0px #808080, /* Dark inner shadow for depth */
-            inset 1px 1px 2px 0px rgba(0, 0, 0, 0.2); /* Subtle inner shadow for soft depth */
+            inset 2px 2px 2px 0px rgba(0, 0, 0, 0.4); /* Subtle inner shadow for soft depth */
     }
 
     .windows-95-theme .text-box-title {
@@ -75,7 +74,7 @@
             1px 1px 0px 0px #000, /* Dark outer shadow for depth */
             inset 1px 1px 0px 0px #fff, /* Bright inner shadow for highlight */
             inset -1px -1px 0px 0px #808080, /* Dark inner shadow for depth */
-            inset 1px 1px 2px 0px rgba(0, 0, 0, 0.2); /* Subtle inner shadow for soft depth */
+            inset 1px 1px 2px 0px rgba(0, 0, 0, 0.3); /* Subtle inner shadow for soft depth */
     }
 
     .windows-95-theme .menu-bar span {

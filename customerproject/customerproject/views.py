@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.contrib import messages
 from .models import TextBox
 from .forms import TextBoxForm
 
@@ -57,6 +59,87 @@ def windowsxp(request):
         'text_boxes': text_boxes,
         'form': form
     })
+
+def windowsVista(request):
+    text_boxes = TextBox.objects.filter(page_identifier='windowsVista')
+    if request.method == 'POST':
+        form = TextBoxForm(request.POST)
+        if form.is_valid():
+            # This will save the TextBox with the page identifier
+            form.save()
+            # Redirect to the same page to display the new TextBox
+            return redirect('windowsxp')
+    else:
+        form = TextBoxForm(initial={'page_identifier': 'windowsVista'})
+    return render(request, 'windowsVista.html', {
+        'text_boxes': text_boxes,
+        'form': form
+    })
+
+def windows7(request):
+    text_boxes = TextBox.objects.filter(page_identifier='windows7')
+    if request.method == 'POST':
+        form = TextBoxForm(request.POST)
+        if form.is_valid():
+            # This will save the TextBox with the page identifier
+            form.save()
+            # Redirect to the same page to display the new TextBox
+            return redirect('windows7')
+    else:
+        form = TextBoxForm(initial={'page_identifier': 'windows7'})
+    return render(request, 'windows7.html', {
+        'text_boxes': text_boxes,
+        'form': form
+    })
+
+def windows8(request):
+    text_boxes = TextBox.objects.filter(page_identifier='windows8')
+    if request.method == 'POST':
+        form = TextBoxForm(request.POST)
+        if form.is_valid():
+            # This will save the TextBox with the page identifier
+            form.save()
+            # Redirect to the same page to display the new TextBox
+            return redirect('windows8')
+    else:
+        form = TextBoxForm(initial={'page_identifier': 'windows8'})
+    return render(request, 'windows8.html', {
+        'text_boxes': text_boxes,
+        'form': form
+    })
+
+def windows10(request):
+    text_boxes = TextBox.objects.filter(page_identifier='windows10')
+    if request.method == 'POST':
+        form = TextBoxForm(request.POST)
+        if form.is_valid():
+            # This will save the TextBox with the page identifier
+            form.save()
+            # Redirect to the same page to display the new TextBox
+            return redirect('windows10')
+    else:
+        form = TextBoxForm(initial={'page_identifier': 'windows10'})
+    return render(request, 'windows10.html', {
+        'text_boxes': text_boxes,
+        'form': form
+    })
+
+def windows11(request):
+    text_boxes = TextBox.objects.filter(page_identifier='windows11')
+    if request.method == 'POST':
+        form = TextBoxForm(request.POST)
+        if form.is_valid():
+            # This will save the TextBox with the page identifier
+            form.save()
+            # Redirect to the same page to display the new TextBox
+            return redirect('windows11')
+    else:
+        form = TextBoxForm(initial={'page_identifier': 'windows11'})
+    return render(request, 'windows11.html', {
+        'text_boxes': text_boxes,
+        'form': form
+    })
+
 ####################################################################
 # Auth
 ####################################################################
@@ -127,3 +210,25 @@ def edit_textbox(request, pk):
         form = TextBoxForm(instance=text_box)
 
     return render(request, 'edit_textbox.html', {'form': form, 'text_box': text_box})
+
+
+def register(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+
+        if User.objects.filter(email=email).exists():
+            messages.error(request, 'Email is already registered with an account.')
+            return redirect('register')
+        elif password1 != password2:
+            messages.error(request, 'Passwords do not match.')
+            return redirect('register')
+        else:
+            # Create a new superuser account for how we decided to make the accounts work
+            user = User.objects.create_superuser(username=email, email=email, password=password1)
+            user.save()
+            messages.success(request, 'Superuser account has been created.')
+            return redirect('login')
+
+    return render(request, 'register.html')

@@ -2,15 +2,15 @@
 
 {% block content %}
 <div class="container mt-5">
-        <h1>Windows e(XP)erience</h1>
+        <h1>Windows 8</h1>
 
         {% for text_box in text_boxes %}
             <div class="editable-text-box">
                 {{ text_box.content|safe }}
             </div>
         {% endfor %}
-        <a class="btn btn-primary btn-lg" href="{% url 'windows98' %}" role="button">Windows 98</a>
-        <a class="btn btn-primary btn-lg" href="{% url 'windowsVista' %}" role="button">Windows Vista</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'windows7' %}" role="button">Windows 7</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'windows10' %}" role="button">Windows 10</a>
         <a class="btn btn-primary btn-lg" href="{% url 'homepage' %}" role="button">Home</a>
     </div>
 </div>

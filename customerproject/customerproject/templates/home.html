@@ -2,7 +2,6 @@
 {% load static %}
 {% block content %}
 <div class="container mt-5">
-    <div class="jumbotron">
         <p><img src="{% static 'win7.png' %}" alt="Windows Museum Logo" class="img-fluid"></p>
         <h1>Microsoft Windows Operating System Museum</h1>
         <h5>This website will describe all the released versions of Microsoft's 
@@ -10,8 +9,9 @@
         additions between each version, the design difference between each version, and some 
         statistics about each version.
         </h5>
-        <a class="btn btn-primary" href="{% url 'windows95' %}" role="button">Begin</a>
-        
+        <a class="btn btn-primary" href="{% url 'windows95' %}" role="button">Windows 95</a>
+        <a class="btn btn-primary" href="{% url 'windows11' %}" role="button">Windows 11</a>
+
         {% if user.is_authenticated %}
             <a class="btn btn-secondary" href="{% url 'logout' %}" role="button">Logout</a>
             {% if user.is_superuser %}
