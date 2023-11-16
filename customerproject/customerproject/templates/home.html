@@ -2,6 +2,9 @@
 {% load static %}
 {% block content %}
 <div class="container mt-5">
+        {% if user.is_authenticated %}
+            <span> Logged in: {{ user.username }} </span>
+        {% endif %}
         <p><img src="{% static 'win7.png' %}" alt="Windows Museum Logo" class="img-fluid"></p>
         <h1>Microsoft Windows Operating System Museum</h1>
         <h5>This website will describe all the released versions of Microsoft's 

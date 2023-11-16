@@ -22,13 +22,7 @@
 </head>
 <body>
     <div class="col">
-        <div class="row">
-            <div class="col">
-                {% if user.is_authenticated %}
-                    <span> Logged in: {{ user.username }} </span>
-                {% endif %}
-            </div>
-        </div>
+
         {% block content %}
         <!-- The content block will be overridden by child templates -->
         {% endblock %}

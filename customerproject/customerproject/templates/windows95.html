@@ -1,6 +1,7 @@
 {% extends "base.html" %}
+{% load static %} 
 {% block content %}
-<body style="background-color: #008080;"> 
+<body style="background-image: url('{% static 'win95-98.png' %}');  background-color: #008080;  background-size: cover; background-repeat: no-repeat; background-position: center; background-attachment: fixed;">
 <div class="container mt-5 windows-95-theme">
         <h1>Windows 95</h1>
         <div class="text-boxes-grid">
@@ -32,6 +33,10 @@
 </div>
 <!-- Cool notepad theme -->
 <style>
+
+    h1 {
+        color: #fff;
+    }   
 
     .windows-95-theme .text-boxes-grid {
         display: grid;
