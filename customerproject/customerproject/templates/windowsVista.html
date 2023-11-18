@@ -2,7 +2,7 @@
 {% load static %} 
 {% block content %}
 <body style="background-image: url('{% static 'windowsvista.png' %}'); background-size: 100%; background-repeat: no-repeat; background-position: center; background-attachment: fixed;">
-<div class="container mt-5 mt-5 windows-xp-theme">
+<div class="container mt-5 mt-5 windows-vista-theme">
         <h1>Windows Vista</h1>
 <div class="text-boxes-grid">
             {% for text_box in text_boxes %}
@@ -34,87 +34,87 @@
 <style>
 
     h1 {
-        color: #fff;
+        color: #333; /* Darker text color */
     }   
 
-    .windows-xp-theme .text-boxes-grid {
+    .windows-vista-theme .text-boxes-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-gap: 10px;
         grid-auto-rows: minmax(100px, auto);
     }
 
-    .windows-xp-theme .editable-text-box {
-        background-color: #ffffff; /* Light gray background */
+    .windows-vista-theme .editable-text-box {
+        background-color: #ffffff; /* White background */
         color: black; /* Black text color */
-        font-family: Tahoma, sans-serif; 
+        font-family: Consolas, "Courier New", monospace; 
         overflow: auto;
-        border-radius: 2%; 
-        position: relative; /* For positioning the window "controls" */
-        padding: 0px; /* No padding to allow the border to touch the content */
-        border: 7px solid #245DDA;
-        box-shadow: 3px 3px 5px #000000;
+        border-radius: 5px; /* More pronounced border radius */
+        position: relative;
+        padding: 5px; /* Slight padding around the text */
+        border: 1px solid #d3d3d3; /* Lighter border */
+        box-shadow: 2px 2px 3px #aaa; /* Softer shadow */
     }
 
-    .windows-xp-theme .text-box-title {
-        text-shadow: 2px 2px 2px #000000;
-        background-color: #245DDA;
-        color: white; /* White text color */
-        padding: 3px 5px; /* Padding inside the title bar */
-        font-family: Tahoma, sans-serif;
-        border-bottom: 0px solid #c0c0c0; 
-        background-image: linear-gradient(to bottom, #245DDA 0%, #245DDA 25%, #4677e1 50%, #4677e1 75%, #245DDA 100%);
+    .windows-vista-theme .text-box-title {
+        text-shadow: none; /* Remove text shadow */
+        background-color: #e0e0e0; /* Lighter gray title bar */
+        color: black; /* Black text color */
+        padding: 3px 5px;
+        font-family: Arial, sans-serif; /* Change to Arial */
+        border-bottom: 1px solid #d3d3d3; 
+        background-image: linear-gradient(to bottom, #e0e0e0 0%, #ffffff 100%);
     }
 
-    .windows-xp-theme .menu-bar {
-        background-color: #FBF2C7; /* Light gray background */
+    .windows-vista-theme .menu-bar {
+        background-color: #f0f0f0; /* Lighter gray */
         color: black;
-        font-family: Tahoma, sans-serif;
-        padding: 2px 2px; /* Top and bottom padding */
+        font-family: Arial, sans-serif; /* Change to Arial */
+        padding: 2px 2px;
         display: flex;
-        border-bottom: 2px solid #c0c0c0; 
+        border-bottom: 1px solid #d3d3d3; 
     }
 
-    .windows-xp-theme .menu-bar span {
-        margin-right: 10px; /* Spacing between menu items */
-        font-size: 14px; /* Adjust font size as needed */
+    .windows-vista-theme .menu-bar span {
+        margin-right: 10px;
+        font-size: 14px;
     }
 
-    .windows-xp-theme .window-controls {
+    .windows-vista-theme .window-controls {
         position: absolute;
         top: 2.3%;
         right: 5px;
-        transform: translateY(-50%); /* Centers the controls vertically */
+        transform: translateY(-50%);
         display: flex;
     }
 
-    .windows-xp-theme .control {
+    .windows-vista-theme .control {
         width: 25px;
         height: 25px;
-        border: 1.5px solid #fff;
+        border: 1px solid #d3d3d3;
         margin-left: 3px;
         margin-right: 4px;
-        background-color: #c0c0c0;
+        background-color: #e0e0e0;
     }
 
-    .windows-xp-theme .minimize,
-    .windows-xp-theme .maximize{
+    .windows-vista-theme .minimize,
+    .windows-vista-theme .maximize {
         display: flex;
-        color: white;
+        color: black;
         justify-content: center;
         align-items: center;
-        background-color: #245DDA; 
+        background-color: #e0e0e0; 
         padding: 2px; 
         margin-left: 1px; 
         border-radius: 15%; 
-        background-image: linear-gradient(to bottom, #245DDA 0%, #4677e1 50%, #4677e1 50%, #245DDA 100%);
+        background-image: linear-gradient(to bottom, #e0e0e0 0%, #ffffff 50%, #ffffff 50%, #e0e0e0 100%);
     }
-    .windows-xp-theme .exit {
+    .windows-vista-theme .exit {
         display: flex;
-        color: white;
+        color: black;
         justify-content: center;
         align-items: center;
-        background-color: #aa0000; 
+        background-color: #e0e0e0; 
         padding: 2px; 
         margin-left: 1px; 
         border-radius: 15%; 
