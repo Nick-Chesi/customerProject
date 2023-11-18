@@ -3,7 +3,7 @@
 {% load static %} 
 {% block content %}
 <body style="background-image: url('{% static 'windows7.png' %}'); background-size: auto; background-repeat: no-repeat; background-position: center; background-attachment: fixed;">
-<div class="container mt-5 mt-5 windows-xp-theme">
+<div class="container mt-5 mt-5 windows-vista-theme">
         <h1>Windows 7</h1>
 <div class="text-boxes-grid">
             {% for text_box in text_boxes %}
@@ -13,8 +13,11 @@
                     <div class="text-box-title">Info box {{ forloop.counter0 }} - Notepad</div>
                         <div class="window-controls">
                             <div class="control minimize"> <b>_</b></div>
-                            <div class="control minimize"><b>□</b></div>
-                            <div class="control exit">X</div>
+                            <div class="control maximize"><b>□</b></div>
+
+                            <div class="window-controlExit">
+                                <div class="controlExit exit">X</div>
+                            </div>
                         </div>
                     <!-- Menu Bar -->
                     <div class="menu-bar">
@@ -36,90 +39,118 @@
 <style>
 
     h1 {
-        color: #fff;
+        color: #fff; /* Darker text color */
     }   
 
-    .windows-xp-theme .text-boxes-grid {
+    .windows-vista-theme .text-boxes-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-gap: 10px;
         grid-auto-rows: minmax(100px, auto);
     }
 
-    .windows-xp-theme .editable-text-box {
-        background-color: #ffffff; /* Light gray background */
+    .windows-vista-theme .editable-text-box {
+        background-color: rgba(0, 100, 240, 0.3); /* White background */
         color: black; /* Black text color */
-        font-family: Tahoma, sans-serif; 
+        font-family: Consolas, "Courier New", monospace; 
         overflow: auto;
-        border-radius: 2%; 
-        position: relative; /* For positioning the window "controls" */
-        padding: 0px; /* No padding to allow the border to touch the content */
-        border: 7px solid #245DDA;
-        box-shadow: 3px 3px 5px #000000;
+        border-radius: 5px; /* More pronounced border radius */
+        position: relative;
+        padding: 5px; /* Slight padding around the text */
+        border: 1px solid rgba(0, 100, 240, 0.6); /* Lighter border */
+        box-shadow: 2px 2px 3px #aaa; /* Softer shadow */
+        z-index: 1;
     }
 
-    .windows-xp-theme .text-box-title {
-        text-shadow: 2px 2px 2px #000000;
-        background-color: #245DDA;
-        color: white; /* White text color */
-        padding: 3px 5px; /* Padding inside the title bar */
-        font-family: Tahoma, sans-serif;
-        border-bottom: 0px solid #c0c0c0; 
-        background-image: linear-gradient(to bottom, #245DDA 0%, #245DDA 25%, #4677e1 50%, #4677e1 75%, #245DDA 100%);
-    }
-
-    .windows-xp-theme .menu-bar {
-        background-color: #FBF2C7; /* Light gray background */
-        color: black;
-        font-family: Tahoma, sans-serif;
-        padding: 2px 2px; /* Top and bottom padding */
-        display: flex;
-        border-bottom: 2px solid #c0c0c0; 
-    }
-
-    .windows-xp-theme .menu-bar span {
-        margin-right: 10px; /* Spacing between menu items */
-        font-size: 14px; /* Adjust font size as needed */
-    }
-
-    .windows-xp-theme .window-controls {
+    .windows-vista-theme .editable-text-box:before {
+        content: ''; /* Required for the pseudo-element to show up */
         position: absolute;
-        top: 2.3%;
+        top: 60px; 
+        right: 5px; 
+        bottom: 5px; 
+        left: 4px; 
+        background-color: #ffffff; /* White background for the box */
+        border-radius: 3px; /* Optional: if you want the white box to have rounded corners */
+        z-index: -1;
+    }
+
+    .windows-vista-theme .text-box-title {
+        text-shadow: none; /* Remove text shadow */
+        background-color: solid rgba(224, 224, 224, 0.5); /* Lighter gray title bar */
+        color: black; /* Black text color */
+        padding: 3px 5px;
+        font-family: Arial, sans-serif; /* Change to Arial */
+        border-bottom: 1px solid #d3d3d3; 
+        
+    }
+
+    .windows-vista-theme .menu-bar {
+        background-color: #f3f3f3; /* Lighter gray */
+        color: black;
+        font-family: Arial, sans-serif; /* Change to Arial */
+        padding: 2px 2px;
+        display: flex;
+        border-bottom: 1px solid #d3d3d3;
+        border-right: 1px solid #d3d3d3; 
+        border-left: 1px solid #d3d3d3; 
+    }
+
+    .windows-vista-theme .menu-bar span {
+        margin-right: 10px;
+        font-size: 14px;
+    }
+
+    .windows-vista-theme .window-controls {
+        position: absolute;
+        top: 1.5%;
         right: 5px;
-        transform: translateY(-50%); /* Centers the controls vertically */
+        transform: translateY(-50%);
         display: flex;
     }
 
-    .windows-xp-theme .control {
+    .windows-vista-theme .control {
         width: 25px;
         height: 25px;
-        border: 1.5px solid #fff;
-        margin-left: 3px;
-        margin-right: 4px;
-        background-color: #c0c0c0;
+        border: 1px solid #e0e0e0;
+        background-color: rgba(211, 211, 211, 0.3);
     }
 
-    .windows-xp-theme .minimize,
-    .windows-xp-theme .maximize{
-        display: flex;
-        color: white;
-        justify-content: center;
-        align-items: center;
-        background-color: #245DDA; 
-        padding: 2px; 
-        margin-left: 1px; 
-        border-radius: 15%; 
-        background-image: linear-gradient(to bottom, #245DDA 0%, #4677e1 50%, #4677e1 50%, #245DDA 100%);
+     .windows-vista-theme .controlExit {
+        width: 40px;
+        height: 25px;
+        border: 1px solid #e0e0e0;
+        background-color: rgba(240, 25, 25, 0.6);
     }
-    .windows-xp-theme .exit {
+
+    .windows-vista-theme .minimize{
         display: flex;
-        color: white;
+        color: black;
         justify-content: center;
         align-items: center;
-        background-color: #aa0000; 
-        padding: 2px; 
-        margin-left: 1px; 
-        border-radius: 15%; 
+        background-color: gray; /* Semi-transparent background */
+        border-radius: 0 0 0px 5px; /* top-left, top-right, bottom-right, bottom-left */
+        background-color: rgba(211, 211, 211, 0.3);
+        border: 1px solid gray; /* Semi-transparent border */
+    }
+    .windows-vista-theme .maximize {
+        display: flex;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        background-color: gray; /* Semi-transparent background */
+        border-radius: 0 0 0px 0px; /* top-left, top-right, bottom-right, bottom-left */
+        background-color: rgba(211, 211, 211, 0.3);
+        border: 1px solid gray; /* Semi-transparent border */
+    }
+
+    .windows-vista-theme .exit {
+        display: flex;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(240, 25, 25, 0.6); /* Semi-transparent red background */
+        border-radius: 0 0 5px 0px; /* top-left, top-right, bottom-right, bottom-left */
+        border: 1px solid gray; /* Semi-transparent darker red border */
     }
 </style>
 </body>
