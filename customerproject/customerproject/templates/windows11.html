@@ -47,14 +47,13 @@
     }
 
     .windows-8-theme .editable-text-box {
-        background-color: #ffffff; /* White background */
-        color: black; /* Black text color */
+        background-color: rgba(40, 40, 40, 0.3); /* White background */
+        color: white; /* Black text color */
         font-family: Consolas, "Courier New", monospace; 
         overflow: auto;
-        border-radius: 0px; /* More pronounced border radius */
+        border-radius: 5px; /* More pronounced border radius */
         position: relative;
         padding: 5px; /* Slight padding around the text */
-        border: 1px solid lightblue; /* Lighter border */
         z-index: 1;
     }
 
@@ -62,21 +61,20 @@
         content: ''; /* Required for the pseudo-element to show up */
         position: absolute;
         top: 60px; 
-        right: 5px; 
-        bottom: 5px; 
-        left: 4px; 
-        background-color: #ffffff; /* White background for the box */
+        right: 0px; 
+        bottom: 0px; 
+        left: 0px; 
+        background-color: #43464B; /* White background for the box */
         border-radius: 3px; /* Optional: if you want the white box to have rounded corners */
         z-index: -1;
     }
 
     .windows-8-theme .text-box-title {
         text-shadow: none; /* Remove text shadow */
-        background-color: #4682B4; /* Lighter gray title bar */
-        color: black; /* Black text color */
+        background-color: rgba(40, 40, 40, 0.3);/* Lighter gray title bar */
+        color: white; /* Black text color */
         padding: 3px 5px;
         font-family: Arial, sans-serif; /* Change to Arial */
-        border-bottom: 1px solid #d3d3d3; 
         z-index: 1;
     }
 
@@ -87,19 +85,18 @@
         right: 0px; 
         bottom: 704px; 
         left: 0px; 
-        background-color: #4682B4; /* White background for the box */
-        border-radius: 0px; /* Optional: if you want the white box to have rounded corners */
+        background-color: rgba(40, 40, 40, 0.3); /* White background for the box */
+        border-radius: 0px; 
         z-index: -1;
     }
 
 
     .windows-8-theme .menu-bar {
-        background-color: #f3f3f3; /* Lighter gray */
-        color: black;
+        background-color: rgba(40, 40, 40, 0.3); /* Lighter gray */
+        color: white;
         font-family: Arial, sans-serif; /* Change to Arial */
         padding: 2px 2px;
         display: flex;
-        border-bottom: 1px solid #d3d3d3;
         border-right: 0px solid #d3d3d3; 
         border-left: 0px solid #d3d3d3; 
     }
@@ -131,7 +128,7 @@
 
     .windows-8-theme .minimize{
         display: flex;
-        color: black;
+        color: white;
         height: 15px;
         justify-content: center;
         align-items: center;
@@ -139,7 +136,7 @@
     }
     .windows-8-theme .maximize {
         display: flex;
-        color: black;
+        color: white;
         justify-content: center;
         align-items: center;
         border-radius: 0 0 0px 0px; /* top-left, top-right, bottom-right, bottom-left */
@@ -147,7 +144,7 @@
 
     .windows-8-theme .exit {
         display: flex;
-        color: black;
+        color: white;
         justify-content: center;
         align-items: center;
         border-radius: 0 0 0px 0px; /* top-left, top-right, bottom-right, bottom-left */ 
