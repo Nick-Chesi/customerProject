@@ -3,6 +3,10 @@
 {% load static %} 
 {% block content %}
 <body style="background-image: url('{% static 'windows7.png' %}'); background-size: auto; background-repeat: no-repeat; background-position: center; background-attachment: fixed;">
+<div id="video-overlay">
+    <iframe id="bg-video" width="560" height="315" src="https://www.youtube.com/embed/utUn3Gxw0SY?autoplay=1&mute=1&controls=0&loop=1&playlist=utUn3Gxw0SY" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
+
 <div class="container mt-5 mt-5 windows-vista-theme">
         <h1>Windows 7</h1>
 <div class="text-boxes-grid">
@@ -57,7 +61,7 @@
         border-radius: 5px; /* More pronounced border radius */
         position: relative;
         padding: 5px; /* Slight padding around the text */
-        border: 1px solid rgba(0, 100, 240, 0.6); /* Lighter border */
+        border: 1px solid rgba(0, 100, 240, 0.3); /* Lighter border */
         box-shadow: 2px 2px 3px #aaa; /* Softer shadow */
         z-index: 1;
     }
@@ -152,6 +156,33 @@
         border-radius: 0 0 5px 0px; /* top-left, top-right, bottom-right, bottom-left */
         border: 1px solid gray; /* Semi-transparent darker red border */
     }
+    #video-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 2s ease-in-out;
+    }
+
+    #bg-video {
+        width: 100%;
+        height: 100%;
+    }
 </style>
+<!-- JavaScript for Fade-Out Effect -->
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        setTimeout(() => {
+            document.getElementById('video-overlay').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('video-overlay').style.display = 'none';
+            }, 2000); // Match the duration of the opacity transition
+        }, 10000); // Duration for how long you want to show the video, e.g., 10 seconds
+    });
+</script>
 </body>
 {% endblock %}
